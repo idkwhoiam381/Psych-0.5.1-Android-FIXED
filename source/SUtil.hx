@@ -1,8 +1,8 @@
 package;
 
 #if (android && MODS_ALLOWED)
-import android.AndroidTools;
-import android.stuff.Permissions;
+import android.Tools;
+import android.Permissions;
 #end
 import lime.app.Application;
 import openfl.events.UncaughtErrorEvent;
@@ -23,9 +23,9 @@ using StringTools;
 
 class SUtil {
 	#if (android && MODS_ALLOWED)
-	private static var grantedPermsList:Array<Permissions> = AndroidTools.getGrantedPermissions(); 
+	private static var grantedPermsList:Array<Permissions> = Tools.getGrantedPermissions(); 
 	private static var aDir:String = null; // android dir 
-	public static var sPath:String = AndroidTools.getExternalStorageDirectory(); // storage dir
+	public static var sPath:String = Tools.getExternalStorageDirectory(); // storage dir
 	#end
 
 	static public function getPath():String {
@@ -44,13 +44,13 @@ class SUtil {
 	static public function doTheCheck() {
 		#if (android && MODS_ALLOWED)
 		if (!grantedPermsList.contains(Permissions.READ_EXTERNAL_STORAGE) || !grantedPermsList.contains(Permissions.WRITE_EXTERNAL_STORAGE)) {
-			if (AndroidTools.sdkVersion > 23 || AndroidTools.sdkVersion == 23) {
-				AndroidTools.requestPermissions([Permissions.READ_EXTERNAL_STORAGE, Permissions.WRITE_EXTERNAL_STORAGE]);
+			if (Tools.sdkVersion > 23 || Tools.sdkVersion == 23) {
+				Tools.requestPermissions([Permissions.READ_EXTERNAL_STORAGE, Permissions.WRITE_EXTERNAL_STORAGE]);
 			}
 		}
 
 		if (!grantedPermsList.contains(Permissions.READ_EXTERNAL_STORAGE) || !grantedPermsList.contains(Permissions.WRITE_EXTERNAL_STORAGE)) {
-			if (AndroidTools.sdkVersion > 23 || AndroidTools.sdkVersion == 23) {
+			if (Tools.sdkVersion > 23 || Tools.sdkVersion == 23) {
 				SUtil.applicationAlert("Permissions", "If you accepted the permisions for storage, good, you can continue, if you not the game can't run without storage permissions please grant them in app settings" 
 					+ "\n" + "Press Ok To Close The App");
 			} else {
