@@ -46,6 +46,16 @@
       "type": "haxelib"
     },
     {
+      "name": "hxp",
+      "type": "haxelib"
+    },
+    {
+      "name": "discord_rpc",
+      "type": "git",
+      "ref": "master",
+      "url": "https://github.com/Aidan63/linc_discord-rpc"
+    },
+    {
       "name": "extension-webview",
       "type": "git",
       "ref": "master",
@@ -68,6 +78,12 @@
       "type": "git",
       "ref": "master",
       "url": "https://github.com/Moxie-Stuff/linc_luajit"
+    },
+    {
+      "name": "flxanimate",
+      "type": "git",
+      "ref": "master",
+      "url": "https://github.com/Dot-Stuff/flxanimate"
     }
   ]
 }
